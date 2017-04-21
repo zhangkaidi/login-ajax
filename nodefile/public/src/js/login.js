@@ -30,6 +30,7 @@
                     })
                 })
             },
+            //新增
             add: function (add) {
                 $('.' + add).click(function () {
                    var newPersonId  =  $(this).prevAll('.person-id').val();

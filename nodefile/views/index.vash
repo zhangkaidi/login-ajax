@@ -4,8 +4,8 @@
     <h1 class="login-h1">数据操作</h1>
     <div class="login-users" data-url="/users">
         <h3>登录：</h3>
-        <input class="person-id" type="text" value="" placeholder="id" />
-        <input class="person-pwd" type="password" value="" placeholder="passwprd" />
+        <input class="person-id" type="text" placeholder="请输入用户名" />
+        <input class="person-pwd" type="password" placeholder="请输入密码" />
         <button class="submit">submit</button>
     </div>
     <div class="person-list">
@@ -29,7 +29,7 @@
         <h3>添加用户：</h3>
         <input class="person-id" type="text" value="" placeholder="id" />
         <input class="person-pwd" type="password" value="" placeholder="passwprd" />
-        <button class="submit">add</button>
+        <button class="add-person-btn">add</button>
     </div>
 </div>
     })

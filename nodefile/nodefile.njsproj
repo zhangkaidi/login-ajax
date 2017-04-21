@@ -32,13 +32,23 @@
   <ItemGroup>
     <Compile Include="app.js" />
     <Compile Include="public\js\lib\jquery-1.12.4.min.js" />
-    <Compile Include="public\src\js\index.js" />
+    <Compile Include="public\src\js\login.js" />
     <Compile Include="routes\index.js" />
     <Compile Include="routes\users.js" />
     <Compile Include="bin\www" />
+    <None Include="compilerconfig.json" />
+    <Content Include="compilerconfig.json.defaults">
+      <SubType>Content</SubType>
+      <DependentUpon>compilerconfig.json</DependentUpon>
+    </Content>
     <Content Include="package.json" />
     <Content Include="PersonData.json" />
-    <Content Include="public\stylesheets\style.styl" />
+    <Content Include="public\src\less\login.css" />
+    <Content Include="public\src\less\login.less" />
+    <Content Include="public\src\less\login.min.css">
+      <SubType>Content</SubType>
+      <DependentUpon>public\src\less\login.css</DependentUpon>
+    </Content>
     <Content Include="README.md" />
     <Content Include="typings.json" />
     <Content Include="views\index.vash" />
@@ -52,7 +62,7 @@
     <Folder Include="public\js\lib\" />
     <Folder Include="public\src\" />
     <Folder Include="public\src\js\" />
-    <Folder Include="public\stylesheets\" />
+    <Folder Include="public\src\less\" />
     <Folder Include="routes\" />
     <Folder Include="typings\" />
     <Folder Include="typings\globals\" />

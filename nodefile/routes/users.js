@@ -13,7 +13,6 @@ router.get('/', function (req, res) {
                 id: req.query.id,
                 pwd: req.query.pwd
             }
-           
             for (var i = 0; i < dataObj.person.length; i++) {
                 if (dataObj.person[i].id == personData.id && dataObj.person[i].pwd == personData.pwd) {
                     res.json({ result: true })
@@ -26,7 +25,6 @@ router.get('/', function (req, res) {
            
         }
     });
-  // res.render('index', {idArr:idArr});
 });
 
 module.exports = router;

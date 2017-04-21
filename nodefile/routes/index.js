@@ -9,11 +9,9 @@ router.get('/', function (req, res) {
             return console.error(err);
         } else {
             var dataObj = eval("(" + data + ")");
-            var idArr = [];
-            idArr.push(dataObj.person[0].id);
         }
+        res.render('index', { dataObj: dataObj });
     });
-    res.render('index', { title: 'Express' });
 });
 
 module.exports = router;

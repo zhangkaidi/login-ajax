@@ -1,8 +1,11 @@
 ﻿(function () {
     var person = (function () {
-        var $personId = $('.person-id');
-        var $personPwd = $('.person-pwd');
-        var $personDelete ='.btn-delete';
+        var $personId = $('.person-id');//用户名
+        var $personPwd = $('.person-pwd');//用户密码
+        var $personDelete = '.btn-delete';//删除按钮
+        var $personEdite = '.btn-edite';//编辑按钮
+        var $personSave = '.btn-save';//保存按钮
+        var $peronListMessage = $('.person-list-message');//用户信息显示div
         return {
             //登录
             login: function (submit) {
@@ -36,33 +39,33 @@
                 $('.' + add).click(function () {
                     var $newPersonId = $("#newPersonId").val();
                     var $newPersonPwd = $("#newPersonPwd").val();
-                   if ($newPersonId == "" || $newPersonPwd == "") {
-                       alert('请输入用户名和密码');
-                       return;
+                    if ($newPersonId == "" || $newPersonPwd == "") {
+                        alert('请输入用户名和密码');
+                        return;
                     }
-                   var newPersonData = {
-                       id: $newPersonId,
-                       pwd: $newPersonPwd
-                   };
-                   $.ajax({
-                       url:$('.add-person').data('addurl'),
-                       type:'get',
-                       data:newPersonData,
-                       success: function (result) {
-                           if (result.result) {
-                               var newTrTd = "<tr><td class='person-id'>" + $newPersonId + "</td><td>" + $newPersonPwd + "</td>"
-                               newTrTd += '<td class="operate-btn"><span class="btn btn-delete">删除</span><span class="btn btn-edite">修改</span><span class="btn btn-save">保存</span></td><tr>'
-                               $('.person-list-message tr').last().after(newTrTd);
-                           } else {
-                               alert('用户名重复');
-                           }
-                       }
-                   });
+                    var newPersonData = {
+                        id: $newPersonId,
+                        pwd: $newPersonPwd
+                    };
+                    $.ajax({
+                        url: $('.add-person').data('addurl'),
+                        type: 'get',
+                        data: newPersonData,
+                        success: function (result) {
+                            if (result.result) {
+                                var newTrTd = "<tr><td class='person-id'>" + $newPersonId + "</td><td class='person-pwd'><input type='text' value=" + $newPersonPwd + " readonly='readonly'/></td>"
+                                newTrTd += '<td class="operate-btn"><span class="btn btn-delete">删除</span><span class="btn btn-edite">修改</span><span class="btn btn-save">保存</span></td><tr>'
+                                $('.person-list-message tr').last().after(newTrTd);
+                            } else {
+                                alert('用户名重复');
+                            }
+                        }
+                    });
                 })
             },
             //删除
             del: function () {
-                $('body').on('click', $personDelete, function () {
+                $peronListMessage.on('click', $personDelete, function () {
                     var delPersonId = $(this).parent().prevAll('.person-id').text();
                     var $this = $(this);
                     var personId = {
@@ -81,10 +84,42 @@
                         }
                     })
                 })
+            },
+            //修改
+            edite: function () {
+                $peronListMessage.on('click', $personEdite, function () {
+                    $(this).parent().prev().find('input').prop('readonly', false).focus();
+                    $(this).parent().parent().siblings().find('input').prop('readonly', true)
+                })
+            },
+            //保存
+            save: function () {
+                $peronListMessage.on('click', $personSave, function () {
+                    var $this = $(this);
+                    var personId = $(this).parent().siblings('.person-id').text();
+                    var personPwd = $(this).parent().siblings('.person-pwd').find('input').val();
+                    var person = {
+                        id: personId,
+                        pwd: personPwd
+                    };
+                    $.ajax({
+                        url: $('.person-list').data('edite'),
+                        type: 'get',
+                        data: person,
+                        success: function (result) {
+                            if (result.result) {
+                                alert('修改成功'); 
+                                $this.parent().prev().find('input').prop('readonly', true);
+                            }
+                        }
+                    })
+                })
             }
         }
     })()
     person.login('submit');
     person.add('add-person-btn');
     person.del();
+    person.edite();
+    person.save();
 })()

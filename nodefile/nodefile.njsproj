@@ -35,6 +35,7 @@
     <Compile Include="public\src\js\login.js" />
     <Compile Include="routes\add.js" />
     <Compile Include="routes\delete.js" />
+    <Compile Include="routes\edite.js" />
     <Compile Include="routes\index.js" />
     <Compile Include="routes\users.js" />
     <Compile Include="bin\www" />

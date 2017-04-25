@@ -16,6 +16,9 @@
   line-height: 30px;
   border: 1px solid #ddd;
 }
+.login .person-list table tr td input {
+  border: none;
+}
 .login .person-list table tr .operate-btn .btn {
   height: 25px;
   line-height: 25px;

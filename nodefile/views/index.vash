@@ -8,7 +8,13 @@
         <input class="person-pwd" type="password" placeholder="请输入密码" />
         <button class="submit">submit</button>
     </div>
-    <div class="person-list" data-delurl="/delete">
+    <div class="add-person" data-addurl="/add">
+        <h3>添加用户：</h3>
+        <input class="person-id" id="newPersonId" type="text" placeholder="请输入用户名" />
+        <input class="person-pwd" id="newPersonPwd" type="password" placeholder="请输入密码" />
+        <button class="add-person-btn">add</button>
+    </div>
+    <div class="person-list" data-delurl="/delete" data-edite="/edite">
         <h3>用户信息：</h3>
         <table class="person-list-message">
             <tr>
@@ -19,17 +25,11 @@
             @for(var i=0;i< model.dataObj.length;i++){
             <tr>
                 <td class="person-id">@model.dataObj[i].id</td>
-                <td>@model.dataObj[i].pwd</td>
+                <td class="person-pwd"><input type="text" name="name" value="@model.dataObj[i].pwd" readonly="readonly"/></td>
                 <td class="operate-btn"><span class="btn btn-delete">删除</span><span class="btn btn-edite">修改</span><span class="btn btn-save">保存</span></td>
             </tr>
             }
         </table>
-    </div>
-    <div class="add-person" data-addurl="/add" >
-        <h3>添加用户：</h3>
-        <input class="person-id" id="newPersonId" type="text" placeholder="请输入用户名" />
-        <input class="person-pwd" id="newPersonPwd" type="password" placeholder="请输入密码" />
-        <button class="add-person-btn">add</button>
     </div>
 </div>
     })

@@ -16,19 +16,19 @@
                 <th>密码</th>
                 <th>操作</th>
             </tr>
-            @for(var i=0;i< model.dataObj.person.length;i++){
+            @for(var i=0;i< model.dataObj.length;i++){
             <tr>
-                <td>@model.dataObj.person[i].id</td>
-                <td>@model.dataObj.person[i].pwd</td>
+                <td>@model.dataObj[i].id</td>
+                <td>@model.dataObj[i].pwd</td>
                 <td class="operate-btn"><span class="btn btn-delete">删除</span><span class="btn btn-edite">修改</span><span class="btn btn-save">保存</span></td>
             </tr>
             }
         </table>
     </div>
-    <div class="add-person" >
+    <div class="add-person" data-addurl="/add" >
         <h3>添加用户：</h3>
-        <input class="person-id" type="text" value="" placeholder="id" />
-        <input class="person-pwd" type="password" value="" placeholder="passwprd" />
+        <input class="person-id" id="newPersonId" type="text" placeholder="请输入用户名" />
+        <input class="person-pwd" id="newPersonPwd" type="password" placeholder="请输入密码" />
         <button class="add-person-btn">add</button>
     </div>
 </div>

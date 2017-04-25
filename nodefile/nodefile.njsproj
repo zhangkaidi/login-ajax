@@ -33,6 +33,7 @@
     <Compile Include="app.js" />
     <Compile Include="public\js\lib\jquery-1.12.4.min.js" />
     <Compile Include="public\src\js\login.js" />
+    <Compile Include="routes\add.js" />
     <Compile Include="routes\index.js" />
     <Compile Include="routes\users.js" />
     <Compile Include="bin\www" />

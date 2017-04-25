@@ -9,7 +9,7 @@
                     var $personIdVal = $personId.val();
                     var $personPwdVal = $personPwd.val();
                     if ($personIdVal == "" || $personPwdVal == "") {
-                        alert('请输入用户名或者密码');
+                        alert('请输入用户名和密码');
                         return;
                     }
                     var personData = {
@@ -33,11 +33,30 @@
             //新增
             add: function (add) {
                 $('.' + add).click(function () {
-                   var newPersonId  =  $(this).prevAll('.person-id').val();
-                   var newPersonPwd = $(this).prevAll('.person-pwd').val();
-                   var newTrTd = "<tr><td>" + newPersonId + "</td><td>" + newPersonPwd + "</td>"
-                   newTrTd +='<td class="operate-btn"><span class="btn btn-delete ">删除</span><span class="btn btn-edite">修改</span><span class="btn btn-save">保存</span></td><tr>'
-                   $('.person-list-message tr').last().after(newTrTd);
+                    var $newPersonId = $("#newPersonId").val();
+                    var $newPersonPwd = $("#newPersonPwd").val();
+                   if ($newPersonId == "" || $newPersonPwd == "") {
+                       alert('请输入用户名和密码');
+                       return;
+                    }
+                   var newPersonData = {
+                       id: $newPersonId,
+                       pwd: $newPersonPwd
+                   };
+                   $.ajax({
+                       url:$('.add-person').data('addurl'),
+                       type:'get',
+                       data:newPersonData,
+                       success: function (result) {
+                           if (result.result) {
+                               var newTrTd = "<tr><td>" + $newPersonId + "</td><td>" + $newPersonPwd + "</td>"
+                               newTrTd += '<td class="operate-btn"><span class="btn btn-delete ">删除</span><span class="btn btn-edite">修改</span><span class="btn btn-save">保存</span></td><tr>'
+                               $('.person-list-message tr').last().after(newTrTd);
+                           } else {
+                               alert('用户名重复');
+                           }
+                       }
+                   });
                 })
             }
         }

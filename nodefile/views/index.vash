@@ -8,7 +8,7 @@
         <input class="person-pwd" type="password" placeholder="请输入密码" />
         <button class="submit">submit</button>
     </div>
-    <div class="person-list">
+    <div class="person-list" data-delurl="/delete">
         <h3>用户信息：</h3>
         <table class="person-list-message">
             <tr>
@@ -18,7 +18,7 @@
             </tr>
             @for(var i=0;i< model.dataObj.length;i++){
             <tr>
-                <td>@model.dataObj[i].id</td>
+                <td class="person-id">@model.dataObj[i].id</td>
                 <td>@model.dataObj[i].pwd</td>
                 <td class="operate-btn"><span class="btn btn-delete">删除</span><span class="btn btn-edite">修改</span><span class="btn btn-save">保存</span></td>
             </tr>

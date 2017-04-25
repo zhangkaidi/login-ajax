@@ -2,6 +2,7 @@
     var person = (function () {
         var $personId = $('.person-id');
         var $personPwd = $('.person-pwd');
+        var $personDelete ='.btn-delete';
         return {
             //登录
             login: function (submit) {
@@ -49,8 +50,8 @@
                        data:newPersonData,
                        success: function (result) {
                            if (result.result) {
-                               var newTrTd = "<tr><td>" + $newPersonId + "</td><td>" + $newPersonPwd + "</td>"
-                               newTrTd += '<td class="operate-btn"><span class="btn btn-delete ">删除</span><span class="btn btn-edite">修改</span><span class="btn btn-save">保存</span></td><tr>'
+                               var newTrTd = "<tr><td class='person-id'>" + $newPersonId + "</td><td>" + $newPersonPwd + "</td>"
+                               newTrTd += '<td class="operate-btn"><span class="btn btn-delete">删除</span><span class="btn btn-edite">修改</span><span class="btn btn-save">保存</span></td><tr>'
                                $('.person-list-message tr').last().after(newTrTd);
                            } else {
                                alert('用户名重复');
@@ -58,9 +59,32 @@
                        }
                    });
                 })
+            },
+            //删除
+            del: function () {
+                $('body').on('click', $personDelete, function () {
+                    var delPersonId = $(this).parent().prevAll('.person-id').text();
+                    var $this = $(this);
+                    var personId = {
+                        id: delPersonId
+                    };
+                    $.ajax({
+                        url: $('.person-list').data('delurl'),
+                        post: 'get',
+                        data: personId,
+                        success: function (result) {
+                            if (result.result) {
+                                $this.parent().parent().remove();
+                            } else {
+                                alert('删除失败')
+                            }
+                        }
+                    })
+                })
             }
         }
     })()
     person.login('submit');
     person.add('add-person-btn');
+    person.del();
 })()

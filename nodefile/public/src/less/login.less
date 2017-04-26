@@ -1,6 +1,21 @@
-﻿.login {
+﻿@import "body.less";
+.login {
     width: 1200px;
     margin: 0 auto;
+
+    &-h1 {
+        padding: 10px 0;
+        font-size: 30px;
+    }
+
+    &-h3 {
+        padding: 20px 0;
+        font-size: 24px;
+    }
+
+    .person-input {
+        border: 1px solid #ddd;
+    }
 
     .person-list {
         table {
@@ -20,8 +35,9 @@
                     height: 30px;
                     line-height: 30px;
                     border: 1px solid #ddd;
-                    input{
-                        border:none;
+
+                    input {
+                        border: none;
                     }
                 }
 

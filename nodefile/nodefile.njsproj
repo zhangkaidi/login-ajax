@@ -32,6 +32,14 @@
   <ItemGroup>
     <Compile Include="app.js" />
     <Compile Include="public\js\lib\jquery-1.12.4.min.js" />
+    <Compile Include="public\src\js\login.es5.js">
+      <SubType>Code</SubType>
+      <DependentUpon>public\src\js\login.js</DependentUpon>
+    </Compile>
+    <Compile Include="public\src\js\login.es5.min.js">
+      <SubType>Code</SubType>
+      <DependentUpon>public\src\js\login.es5.js</DependentUpon>
+    </Compile>
     <Compile Include="public\src\js\login.js" />
     <Compile Include="routes\add.js" />
     <Compile Include="routes\delete.js" />
@@ -40,19 +48,26 @@
     <Compile Include="routes\users.js" />
     <Compile Include="bin\www" />
     <None Include="compilerconfig.json" />
+    <None Include="bundleconfig.json" />
     <Content Include="compilerconfig.json.defaults">
       <SubType>Content</SubType>
       <DependentUpon>compilerconfig.json</DependentUpon>
     </Content>
     <Content Include="package.json" />
     <Content Include="PersonData.json" />
+    <Content Include="public\css\bundle.css" />
+    <Content Include="public\css\bundle.min.css">
+      <SubType>Content</SubType>
+      <DependentUpon>public\css\bundle.css</DependentUpon>
+    </Content>
+    <Content Include="public\src\less\body.less" />
     <Content Include="public\src\less\login.css" />
     <Content Include="public\src\less\login.less" />
     <Content Include="public\src\less\login.min.css">
       <SubType>Content</SubType>
       <DependentUpon>public\src\less\login.css</DependentUpon>
     </Content>
-    <Content Include="README.md" />
+    <Content Include="public\src\less\reset.css" />
     <Content Include="typings.json" />
     <Content Include="views\index.vash" />
     <Content Include="views\layout.vash" />
@@ -63,6 +78,7 @@
     <Folder Include="public\" />
     <Folder Include="public\js\" />
     <Folder Include="public\js\lib\" />
+    <Folder Include="public\css\" />
     <Folder Include="public\src\" />
     <Folder Include="public\src\js\" />
     <Folder Include="public\src\less\" />

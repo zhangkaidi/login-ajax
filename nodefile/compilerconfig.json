@@ -1,6 +1,7 @@
 ﻿[
   {
     "outputFile": "public/src/less/login.css",
-    "inputFile": "public/src/less/login.less"
+    "inputFile": "public/src/less/login.less",
+    "sourceMap": false
   }
 ]

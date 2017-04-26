@@ -3,19 +3,19 @@
 <div class="login">
     <h1 class="login-h1">数据操作</h1>
     <div class="login-users" data-url="/users">
-        <h3>登录：</h3>
-        <input class="person-id" type="text" placeholder="请输入用户名" />
-        <input class="person-pwd" type="password" placeholder="请输入密码" />
-        <button class="submit">submit</button>
+        <h3 class="login-h3">登录：</h3>
+        <input class="person-input person-id" id="personId" type="text" placeholder="请输入用户名" />
+        <input class="person-input person-pwd" id="personPwd" type="password" placeholder="请输入密码" />
+        <button class="submit">登录</button>
     </div>
     <div class="add-person" data-addurl="/add">
-        <h3>添加用户：</h3>
-        <input class="person-id" id="newPersonId" type="text" placeholder="请输入用户名" />
-        <input class="person-pwd" id="newPersonPwd" type="password" placeholder="请输入密码" />
-        <button class="add-person-btn">add</button>
+        <h3 class="login-h3">注册：</h3>
+        <input class="person-input person-id" id="newPersonId" type="text" placeholder="请输入用户名" />
+        <input class="person-input person-pwd" id="newPersonPwd" type="password" placeholder="请输入密码" />
+        <button class="add-person-btn">注册</button>
     </div>
     <div class="person-list" data-delurl="/delete" data-edite="/edite">
-        <h3>用户信息：</h3>
+        <h3 class="login-h3">用户信息：</h3>
         <table class="person-list-message">
             <tr>
                 <th>用户名</th>
@@ -25,7 +25,7 @@
             @for(var i=0;i< model.dataObj.length;i++){
             <tr>
                 <td class="person-id">@model.dataObj[i].id</td>
-                <td class="person-pwd"><input type="text" name="name" value="@model.dataObj[i].pwd" readonly="readonly"/></td>
+                <td class="person-pwd"><input class="list-pwd" type="password" name="pwd" value="@model.dataObj[i].pwd" readonly="readonly"/></td>
                 <td class="operate-btn"><span class="btn btn-delete">删除</span><span class="btn btn-edite">修改</span><span class="btn btn-save">保存</span></td>
             </tr>
             }

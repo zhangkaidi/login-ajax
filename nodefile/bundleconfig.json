@@ -1,0 +1,8 @@
+[
+  {
+    "outputFileName": "public/css/bundle.min.css",
+    "inputFiles": [
+      "public/css/bundle.css"
+    ]
+  }
+]

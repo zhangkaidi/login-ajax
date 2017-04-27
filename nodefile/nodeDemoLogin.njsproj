@@ -33,11 +33,16 @@
   <ItemGroup>
     <Compile Include="app.js" />
     <Compile Include="public\js\lib\jquery-1.12.4.min.js" />
-    <Compile Include="public\src\js\login.js" />
-    <Compile Include="public\src\js\login.min.js">
+    <Compile Include="public\src\js\login.es5.js">
       <SubType>Code</SubType>
       <DependentUpon>public\src\js\login.js</DependentUpon>
     </Compile>
+    <Compile Include="public\src\js\login.es5.min.js">
+      <SubType>Code</SubType>
+      <DependentUpon>public\src\js\login.es5.js</DependentUpon>
+    </Compile>
+    <Compile Include="public\src\js\login.js" />
+    <Compile Include="public\src\js\login.min.js" />
     <Compile Include="routes\register.js" />
     <Compile Include="routes\delete.js" />
     <Compile Include="routes\edite.js" />
@@ -57,6 +62,7 @@
       <SubType>Content</SubType>
       <DependentUpon>public\css\bundle.css</DependentUpon>
     </Content>
+    <Content Include="public\favicon.ico" />
     <Content Include="public\src\less\body.less" />
     <Content Include="public\src\less\login.css" />
     <Content Include="public\src\less\login.less" />

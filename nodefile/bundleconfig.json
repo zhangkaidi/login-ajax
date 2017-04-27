@@ -4,5 +4,11 @@
     "inputFiles": [
       "public/css/bundle.css"
     ]
+  },
+  {
+    "outputFileName": "public/src/js/login.min.js",
+    "inputFiles": [
+      "public/src/js/login.js"
+    ]
   }
 ]

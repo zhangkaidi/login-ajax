@@ -33,20 +33,16 @@
   <ItemGroup>
     <Compile Include="app.js" />
     <Compile Include="public\js\lib\jquery-1.12.4.min.js" />
-    <Compile Include="public\src\js\login.es5.js">
+    <Compile Include="public\src\js\login.js" />
+    <Compile Include="public\src\js\login.min.js">
       <SubType>Code</SubType>
       <DependentUpon>public\src\js\login.js</DependentUpon>
     </Compile>
-    <Compile Include="public\src\js\login.es5.min.js">
-      <SubType>Code</SubType>
-      <DependentUpon>public\src\js\login.es5.js</DependentUpon>
-    </Compile>
-    <Compile Include="public\src\js\login.js" />
-    <Compile Include="routes\add.js" />
+    <Compile Include="routes\register.js" />
     <Compile Include="routes\delete.js" />
     <Compile Include="routes\edite.js" />
     <Compile Include="routes\index.js" />
-    <Compile Include="routes\users.js" />
+    <Compile Include="routes\login.js" />
     <Compile Include="bin\www" />
     <None Include="compilerconfig.json" />
     <None Include="bundleconfig.json" />

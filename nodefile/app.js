@@ -6,8 +6,8 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var routes = require('./routes/index');
-var users = require('./routes/users');
-var add = require('./routes/add');
+var login = require('./routes/login');
+var register = require('./routes/register');
 var del = require('./routes/delete');
 var edite = require('./routes/edite');
 
@@ -28,8 +28,8 @@ app.use(require('stylus').middleware(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
-app.use('/users', users);
-app.use('/add', add);
+app.use('/login', login);
+app.use('/register', register);
 app.use('/delete', del);
 app.use('/edite', edite);
 

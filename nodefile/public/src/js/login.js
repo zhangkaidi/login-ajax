@@ -54,7 +54,7 @@
                         pwd: $newPersonPwd
                     };
                     $.ajax({
-                        url: $('.add-person').data('addurl'),
+                        url: $('.register-person').data('addurl'),
                         type: 'get',
                         data: newPersonData,
                         success: function (result) {
@@ -66,6 +66,8 @@
                                 $('#newPersonPwd').val('');
                             } else {
                                 alert('用户名重复');
+                                $('#newPersonId').val('');
+                                $('#newPersonPwd').val('');
                             }
                         }
                     });
@@ -117,7 +119,7 @@
                         data: person,
                         success: function (result) {
                             if (result.result) {
-                                alert('修改成功'); 
+                                alert('修改成功');
                                 $this.parent().prev().find('input').prop('readonly', true);
                             }
                         }

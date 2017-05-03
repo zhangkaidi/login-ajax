@@ -1,7 +1,7 @@
 ﻿﻿@html.extend('layout', function(model){
     @html.block('content', function(model){
 <div class="login">
-    <h1 class="login-h1">数据操作</h1>
+    <h1 class="login-h1">简版用户管理平台</h1>
     <div class="login-users" data-url="/login">
         <h3 class="login-h3">登录：</h3>
         <input class="person-input person-id" id="personId" type="text" placeholder="请输入用户名" />

@@ -5,6 +5,11 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "nodeDemoLogin", "nodefile\nodeDemoLogin.njsproj", "{3D74B4E8-C81F-4520-84DD-A515856EA680}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "img", "img", "{7B884303-ED5B-4D04-9B5F-DEB1F6E16861}"
+	ProjectSection(SolutionItems) = preProject
+		C:\Users\zhangkaidi\Desktop\img.png = C:\Users\zhangkaidi\Desktop\img.png
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

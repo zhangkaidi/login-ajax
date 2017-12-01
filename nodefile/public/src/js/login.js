@@ -18,15 +18,15 @@
                         return;
                     }
                     var personData = {
-                        id: $personIdVal,
-                        pwd: $personPwdVal
+                        name: $personIdVal,
+                        password: $personPwdVal
                     };
                     $.ajax({
                         url: $('.login-users').data('url'),
                         type: "get",
                         data: personData,
                         success: function (result) {
-                            if (result.result) {
+                            if (result.success) {
                                 $('#personId').val('');
                                 $('#personPwd').val('');
                                 alert('登录成功')
@@ -50,15 +50,15 @@
                         return;
                     }
                     var newPersonData = {
-                        id: $newPersonId,
-                        pwd: $newPersonPwd
+                        name: $newPersonId,
+                        password: $newPersonPwd
                     };
                     $.ajax({
                         url: $('.register-person').data('addurl'),
                         type: 'get',
                         data: newPersonData,
                         success: function (result) {
-                            if (result.result) {
+                            if (result.success) {
                                 var newTrTd = "<tr><td class='person-id'>" + $newPersonId + "</td><td class='person-pwd'><input type='password' value=" + $newPersonPwd + " readonly='readonly'/></td>"
                                 newTrTd += '<td class="operate-btn"><span class="btn btn-delete">删除</span><span class="btn btn-edite">修改</span><span class="btn btn-save">保存</span></td><tr>'
                                 $('.person-list-message tr').last().after(newTrTd);
@@ -79,14 +79,14 @@
                     var delPersonId = $(this).parent().prevAll('.person-id').text();
                     var $this = $(this);
                     var personId = {
-                        id: delPersonId
+                        name: delPersonId
                     };
                     $.ajax({
                         url: $('.person-list').data('delurl'),
                         post: 'get',
                         data: personId,
                         success: function (result) {
-                            if (result.result) {
+                            if (!result.success) {
                                 $this.parent().parent().remove();
                             } else {
                                 alert('删除失败')
@@ -110,15 +110,15 @@
                     var personId = $(this).parent().siblings('.person-id').text();
                     var personPwd = $(this).parent().siblings('.person-pwd').find('input').val();
                     var person = {
-                        id: personId,
-                        pwd: personPwd
+                        name: personId,
+                        password: personPwd
                     };
                     $.ajax({
                         url: $('.person-list').data('edite'),
                         type: 'get',
                         data: person,
                         success: function (result) {
-                            if (result.result) {
+                            if (result.success) {
                                 alert('修改成功');
                                 $this.parent().prev().find('input').prop('readonly', true);
                             }

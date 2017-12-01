@@ -1,37 +1,17 @@
 ﻿var express = require('express');
 var fs = require('fs');
 var router = express.Router();
+var User = require('../model/User.js');
+var DataAccessor = require('../code/userAccessor');
+var accessor = new DataAccessor();
 
 /* GET home page. */
 router.get('/', function (req, res) {
-    fs.readFile('PersonData.json', 'utf8', function (err, data) {
-        if (err) {
-            return console.error(err);
-        } else {
-            var newPersonData = {
-                id: req.query.id,
-                pwd: req.query.pwd
-            }
-            var result = true;
-            var jsonarray = eval('(' + data + ')');
-            for (var i = 0; i < jsonarray.length; i++) {
-                if (jsonarray[i].id == newPersonData.id) {
-                    result == false;
-                    res.json({ result: false });
-                    return;
-                }
-            }
-            if (result == true) {
-                jsonarray.push(newPersonData);
-                jsonarray = JSON.stringify(jsonarray);
-                fs.writeFile('PersonData.json', jsonarray, function (err) {
-                    if (err) throw err;
-                    console.log('The "data to append" was appended to file!');
-                });
-                res.json({ result: true })
-            }
-        }
-    });
+    var user = new User(
+        req.query.name,
+        req.query.password
+    );
+    res.json({ success: accessor.add(user) });
 });
 
 module.exports = router;

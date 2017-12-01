@@ -24,8 +24,8 @@
             </tr>
             @for(var i=0;i< model.dataObj.length;i++){
             <tr>
-                <td class="person-id">@model.dataObj[i].id</td>
-                <td class="person-pwd"><input class="list-pwd" type="password" name="pwd" value="@model.dataObj[i].pwd" readonly="readonly" /></td>
+                <td class="person-id">@model.dataObj[i].name</td>
+                <td class="person-pwd"><input class="list-pwd" type="password" name="pwd" value="@model.dataObj[i].password" readonly="readonly" /></td>
                 <td class="operate-btn"><span class="btn btn-delete">删除</span><span class="btn btn-edite">修改</span><span class="btn btn-save">保存</span></td>
             </tr>
             }

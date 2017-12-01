@@ -32,17 +32,14 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="app.js" />
+    <Compile Include="code\userAccessor.js" />
+    <Compile Include="model\User.js" />
     <Compile Include="public\js\lib\jquery-1.12.4.min.js" />
-    <Compile Include="public\src\js\login.es5.js">
+    <Compile Include="public\src\js\login.js" />
+    <Compile Include="public\src\js\login.min.js">
       <SubType>Code</SubType>
       <DependentUpon>public\src\js\login.js</DependentUpon>
     </Compile>
-    <Compile Include="public\src\js\login.es5.min.js">
-      <SubType>Code</SubType>
-      <DependentUpon>public\src\js\login.es5.js</DependentUpon>
-    </Compile>
-    <Compile Include="public\src\js\login.js" />
-    <Compile Include="public\src\js\login.min.js" />
     <Compile Include="routes\register.js" />
     <Compile Include="routes\delete.js" />
     <Compile Include="routes\edite.js" />
@@ -55,8 +52,8 @@
       <SubType>Content</SubType>
       <DependentUpon>compilerconfig.json</DependentUpon>
     </Content>
+    <Content Include="data\user.txt" />
     <Content Include="package.json" />
-    <Content Include="PersonData.json" />
     <Content Include="public\css\bundle.css" />
     <Content Include="public\css\bundle.min.css">
       <SubType>Content</SubType>
@@ -78,6 +75,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="bin\" />
+    <Folder Include="model\" />
+    <Folder Include="code\" />
+    <Folder Include="data\" />
     <Folder Include="public\" />
     <Folder Include="public\js\" />
     <Folder Include="public\js\lib\" />
